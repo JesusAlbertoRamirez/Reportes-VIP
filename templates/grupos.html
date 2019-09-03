@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grupos</title>
+</head>
+<body>
+
+<h1>This is a Demo</h1>
+
+
+</body>
+
+<!-- Botones -->
+<button id="grupo1">GICOMEX</button>
+<button id="grupo2">GIDSE</button>
+<button id="grupo3">GIGPP</button>
+<button id="grupo4">GIHG</button>
+<button id="grupo5">GIM</button>
+<button id="grupo6">GINPA</button>
+<button id="grupo7">GINPAMCO</button>
+<button id="grupo8">GIPCO</button>
+<button id="grupo9">GIPPE</button>
+<button id="grupo10">GISRF</button>
+<button id="grupo11">GITCOM</button>
+<button id="grupo12">GYEPRO</button>
+<br><br>
+<p id="show"></p>
+
+<!-- Tabla HTML (Bootstrap 4) para mostrar los Archivos de Google Drive  -->
+<table id="root" class="table table-hover table-bordered table-responsive">
+</table>
+
+</html>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type=text/javascript>
+
+		function clickButton(idB){
+			console.log(idB);
+
+			var n = document.getElementsByClassName('buttonHoja');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			if(idB!=n[i].id){
+        				console.log(idB);
+        				var idButton = n[i].id;
+        				console.log(idButton);        				
+        				document.getElementById(idButton).style.display = 'none';
+        			}        			
+        		}        	
+
+        function crearRow(data, tag){
+        	var table = document.getElementById('root');
+        	var row = document.createElement('tr')
+		    
+        	data.forEach(function (e) {		      	  
+ 
+		          var cell = document.createElement(tag || 'td')
+
+		 
+		          cell.textContent = e
+		           
+		                  
+		          row.appendChild(cell)		          
+
+		        })
+
+            	table.appendChild(row)
+        }
+      
+ 
+      // Función para pintar la tabla HTML (Bootstrap 4)
+      
+                
+
+			$.getJSON('/reportes/'+idB+'/', function (data) {
+		      console.log(data.length);		      
+		      //listarenTabla(table, [data[0], data[1], data[2], data[3], data[4], data[5], data[6]], 'th');
+		      var list = []
+		      var count = 0
+		      var tag = ''
+			      data.forEach(function (e) {			      	
+			      	tag = 'td'
+			      	if(count%7==0){
+			      		if(count<8){
+			      			tag = 'th'
+			      		}
+			      		crearRow(list, tag)
+			      		list = []
+			      	}
+
+			      	list.push(e)
+
+			      	count++
+
+			      });
+
+			  });
+		}
+        
+        $(document).ready(function () {
+
+        	$('#grupo1').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+        	
+        	var showData = $('#show');
+
+		    $.getJSON('/reportes/GICOMEX', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "1",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo2').click(function () {
+
+        		$(".lista").remove();        		
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GIDSE', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "2",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo3').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GIGPP', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "3",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo4').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GIHG', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "4",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo5').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GIM', function (data) {
+		      console.log(data);
+
+		      var items = [];
+		      var grupo = "GIM";
+
+		      for (var i=0; i<data.length; i++){
+		      	 //items.push( "<button id="+ i +" onclick=clickButton(" + grupo + ",id)>" + data[i] + "</button><br/><br/>");
+		      	 items.push( "<button class=buttonHoja id="+ i +" onclick=clickButton(id)>" + data[i] + "</button><br/><br/>");
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "5",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo6').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GINPA', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "6",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo7').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GINPAMCO', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "list7",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo8').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GIPCO', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "8",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo9').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GIPPE', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<button>" + data[i] + "</button><br/><br/>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "9",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo10').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GISRF', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "10",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+        	$('#grupo11').click(function () {
+
+        		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GITCOM', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "11",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+		  $('#grupo12').click(function () {
+
+		  		$(".lista").remove();
+        		var n = document.getElementsByClassName('lista');
+        		console.log(n.length);
+        		for(var i=0; i<n.length; i++){
+        			var id = n[i].id;
+        			document.getElementById(id).style.display = 'none';
+        		}
+
+		    var showData = $('#show');
+
+		    $.getJSON('/reportes/GYEPRO', function (data) {
+		      console.log(data);
+
+		      var items = [];
+
+		      for (var i=0; i<data.length; i++){
+		      	 items.push( "<li>" + data[i] + "</li>" );
+		      }
+	         
+	          $( "<ul/>", {
+	          	"id": "12",
+	            "class": "lista",
+	            html: items.join( "" )
+	          }).appendTo( "body" );
+			  });
+
+		    showData.text('Loading the JSON file.');
+		  });
+
+
+		});
+        
+       
+</script>
+
+<style>
+
+	button{
+		display: inline-block;
+	}
+
+</style>
